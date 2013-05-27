@@ -378,3 +378,35 @@ legend {
 .pagination ul > .active > span {
     background-color: #612D00;
 }
+/** -------------NEW--------------- **/
+
+.forums {
+    background-color: #612D00;
+    padding: 10px 0px;
+    margin: 0px 0px 10px 0px;
+    border-radius: 6px;
+}
+
+.forum {
+    padding: 10px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #ff7a00;
+    margin: 0px 0px 0px 0px;
+}
+
+.topic, .post {
+    background-color: #612D00;
+    padding: 10px 0px;
+    margin: 0px 0px 10px 0px;
+    border-radius: 6px;
+}
+
+.topic-header, .post-header {
+    margin: 10px;
+    font-weight: normal;
+}
+
+.topic-body, .post-body {
+    margin: 10px;
+    font-weight: normal;
+}
