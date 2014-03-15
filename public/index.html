@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='NWApp'>
+       <head>
+           <meta charset="utf-8" />
+           <meta name="viewport" content="width=device-width" />
+           <title>NetWars</title>
+
+           <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-route.min.js"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-animate.min.js"></script>
+
+           <script src="vendors/angular-bootstrap/ui-bootstrap.min.js"></script>
+           <script src="vendors/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+           <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css"/>
+           <link rel="stylesheet" href="css/bootstrap-cyborg.css"/>
+           <link rel="stylesheet" href="css/main.css"/>
+       </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <alert ng-repeat="alert in alerts" class="animation" type="alert.type"></alert>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        <h1>Netwars <small>forum</small></h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div ng-view class="animation"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="dist/application.js"></script>
+</html>
