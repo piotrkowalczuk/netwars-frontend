@@ -1,18 +1,16 @@
 angular.module('NWApp').factory('Topic',
     ['$http', function Topic($http) {
-        var fetchTopic = function fetchTopic(forumId, apiCredentials) {
+        var fetchTopic = function fetchTopic(topicId) {
             return $http({
-                url: '/api/topics/'+forumId,
-                method: "GET",
-                params: apiCredentials
+                url: '/api/topics/'+topicId,
+                method: "GET"
             });
         }
 
-        var fetchTopics = function fetchTopics(apiCredentials) {
+        var fetchTopics = function fetchTopics(forumId) {
             return $http({
-                url: '/api/topics',
-                method: "GET",
-                params: apiCredentials
+                url: '/api/topics/'+forumId,
+                method: "GET"
             });
         }
 

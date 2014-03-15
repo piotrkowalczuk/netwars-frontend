@@ -1,18 +1,16 @@
 angular.module('NWApp').factory('Forum',
     ['$http', function Forum($http) {
-        var fetchForum = function fetchForums(forumId, apiCredentials) {
+        var fetchForum = function fetchForums(forumId) {
             return $http({
                 url: '/api/forum/'+forumId,
-                method: "GET",
-                params: apiCredentials
+                method: "GET"
             });
         }
 
-        var fetchForums = function fetchForums(apiCredentials) {
+        var fetchForums = function fetchForums() {
             return $http({
                 url: '/api/forums',
-                method: "GET",
-                params: apiCredentials
+                method: "GET"
             });
         }
 

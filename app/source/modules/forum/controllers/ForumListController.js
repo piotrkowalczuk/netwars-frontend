@@ -1,24 +1,25 @@
 angular.module('NWApp').controller('ForumListController',
-    ['$scope', 'Forum', 'User', function ForumListController($scope, Forum, User) {
+    ['$scope', 'Forum', 'Topic', function ForumListController($scope, Forum, Topic) {
 
-        $scope.forums = {};
+        $scope.forums = [];
+        $scope.topics = [];
 
         $scope.fetchForums = function () {
-            Forum.fetchForums(User.getUserCredentials())
+            Forum.fetchForums()
                 .success(function(forums) {
                     $scope.forums = forums;
+                    angular.forEach($scope.forums, function(forum, key){
+                        Topic.fetchTopics(forum.id)
+                            .success(function(topics) {
+                                $scope.topics[forum.id] = topics;
+                            });
+                    });
                 });
         };
 
-        /**
-         * @param forumId
-         */
-        $scope.fetchTopicsForForum = function (forumId) {
-            Forum.fetchForums(forumId, User.getUserCredentials())
-                .success(function(forums) {
-                    $scope.forums = forums;
-                });
-        };
+        $scope.hasForumTopics = function (forumId) {
+            return $scope.topics[forumId].length > 0
+        }
 
         $scope.fetchForums();
     }]
