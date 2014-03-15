@@ -37,16 +37,16 @@ angular.module('NWApp').factory('User',
 
         var getUserCredentials = function() {
             var credentials = {
-                apiToken: getUserProperty('ioweyouToken'),
-                uid: getUserProperty('ioweyouId')
+                token: getUserProperty('token'),
+                id: getUserProperty('id')
             };
 
             return credentials;
         };
 
         var isLogged = function() {
-            var apiToken = getUserProperty('ioweyouToken');
-            var uid = getUserProperty('ioweyouId');
+            var apiToken = getUserProperty('token');
+            var uid = getUserProperty('id');
 
             if(apiToken && uid) {
                 return true;

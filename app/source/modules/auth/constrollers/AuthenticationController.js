@@ -6,17 +6,19 @@ angular.module('NWApp').controller('AuthenticationController',
             password: null
         }
 
-        $scope.loginAction = function () {
+        $scope.user = {};
+
+        $scope.login = function () {
             Auth.login($scope.credentials)
                 .success(function(userData) {
                     User.login(userData);
                 });
         };
 
-        $scope.logoutAction = function () {
-            Auth.logout({pass: ''})
-                .success(function(userData) {
-                    //@todo
+        $scope.logout = function () {
+            Auth.logout(User.getUserCredentials())
+                .success(function() {
+                    User.login();
                 });
         };
 
@@ -28,6 +30,10 @@ angular.module('NWApp').controller('AuthenticationController',
             if($location.path() === route) {
                 return 'active'
             }
+        }
+
+        $scope.getUserName = function() {
+            return User.getUserProperty('name');
         }
     }]
 );
