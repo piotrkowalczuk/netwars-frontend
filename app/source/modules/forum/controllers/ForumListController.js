@@ -20,8 +20,6 @@ angular.module('NWApp').controller('ForumListController',
         $scope.hasForumTopics = function (forumId) {
             return $scope.topics[forumId].length > 0
         }
-
-        $scope.fetchForums();
     }]
 );
 

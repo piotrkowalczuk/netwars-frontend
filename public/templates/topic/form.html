@@ -1,0 +1,19 @@
+<form novalidate="true" role="form">
+    <div class="form-group">
+        <label for="post-content">Dodaj posta</label>
+        <textarea
+                type="password"
+                class="form-control"
+                id="post-content"
+                placeholder="Treść posta..."
+                ng-model="post.content"
+                >
+        </textarea>
+    </div>
+    <button class="btn btn-primary"
+            ng-click="createPost()"
+            ng-disabled="post.content.length < 1"
+            >
+        Dodaj
+    </button>
+</form>

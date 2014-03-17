@@ -65,7 +65,5 @@ angular.module('NWApp').factory('User',
             getUserCredentials: getUserCredentials,
             isLogged: isLogged
         }
-
-
     }]
 );

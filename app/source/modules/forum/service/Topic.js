@@ -2,7 +2,7 @@ angular.module('NWApp').factory('Topic',
     ['$http', function Topic($http) {
         var fetchTopic = function fetchTopic(topicId) {
             return $http({
-                url: '/api/topics/'+topicId,
+                url: '/api/topic/'+topicId,
                 method: "GET"
             });
         }
@@ -16,7 +16,7 @@ angular.module('NWApp').factory('Topic',
 
         return {
             fetchTopic: fetchTopic,
-            fetchTopics: fetchTopics,
+            fetchTopics: fetchTopics
         }
     }]
 );
