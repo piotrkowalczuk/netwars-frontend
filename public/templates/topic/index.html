@@ -1,6 +1,14 @@
 <div class="row" ng-init="fetchTopic(); fetchPosts();">
     <div class="col-lg-12">
-        <h2>{{ topic.name }}</h2>
+        <div class="row">
+            <div class="col-lg-12">
+                <ol class="breadcrumb">
+                    <li><a href="/forum">Forum</a></li>
+                    <li><a ng-href="/forum/{{forum.id}}" ng-bind="forum.name"></a></li>
+                    <li class="active" ng-bind="topic.name"></li>
+                </ol>
+            </div>
+        </div>
         <div ng-repeat="post in posts" class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">{{ post.authorName }}</h3>
