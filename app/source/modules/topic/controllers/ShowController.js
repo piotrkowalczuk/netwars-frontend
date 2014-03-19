@@ -1,13 +1,14 @@
 angular.module('NWApp').controller(
-    'TopicController',
+    'ShowController',
     [
         '$scope',
         '$routeParams',
+        '$sce',
         'Post',
         'Topic',
         'User',
         'Forum',
-        function TopicController($scope, $routeParams, Post, Topic, User, Forum)
+        function ShowController($scope, $routeParams, $sce, Post, Topic, User, Forum)
         {
             $scope.forum = {};
             $scope.topic = {};
@@ -22,7 +23,7 @@ angular.module('NWApp').controller(
                     .success(function(topic) {
                         $scope.topic = topic;
                         $scope.post.topicId = topic.id;
-                        $scope.fetchForum(topic.id);
+                        $scope.fetchForum(topic.forumId);
                     });
             };
 
@@ -42,6 +43,7 @@ angular.module('NWApp').controller(
 
             $scope.createPost = function () {
                 if($scope.post.content) {
+                    $scope.post.content = $scope.post.content.replace(new RegExp('\r?\n','g'), '<br />');
                     Post.createPost($scope.post)
                         .success(function(post) {
                             $scope.posts.push(post);
@@ -53,6 +55,10 @@ angular.module('NWApp').controller(
                     console.log($scope.post.content);
                 }
             };
+
+            $scope.toTrusted = function(htmlCode) {
+                return $sce.trustAsHtml(htmlCode);
+            }
         }
     ]
 );

@@ -20,22 +20,22 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-md-12">
                     <alert ng-repeat="alert in alerts" class="animation" type="alert.type"></alert>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-md-12">
                     <div class="page-header">
                         <h1><a href="#">Netwars</a> <small>forum</small></h1>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8 col-md-8">
                     <div ng-view class="animation"></div>
                 </div>
-                <div class="col-lg-4" ng-controller="AuthenticationController">
+                <div class="col-lg-4 col-md-4" ng-controller="AuthenticationController">
                     <div ng-if="!isLoggedIn()" ng-include=" '/templates/auth/login.html' "></div>
                     <div ng-if="isLoggedIn()" ng-include=" '/templates/user/details.html' "></div>
                     <div ng-include=" '/templates/common/rightMenu.html' "></div>

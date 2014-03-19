@@ -6,11 +6,15 @@ angular.module('NWApp', ['ngRoute', 'ngCookies', 'ngAnimate', 'ui.bootstrap'])
             'use strict';
 
             $routeProvider.when('/forum', {
-                controller: 'ForumListController',
+                controller: 'ListController',
                 templateUrl: '/templates/forum/list.html'
             })
+            .when('/topic/create', {
+                controller: 'CreateController',
+                templateUrl: '/templates/topic/create.html'
+            })
             .when('/topic/:id', {
-                controller: 'TopicController',
+                controller: 'ShowController',
                 templateUrl: '/templates/topic/index.html'
             })
             .when('/', {

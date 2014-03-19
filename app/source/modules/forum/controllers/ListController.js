@@ -1,5 +1,5 @@
-angular.module('NWApp').controller('ForumListController',
-    ['$scope', 'Forum', 'Topic', function ForumListController($scope, Forum, Topic) {
+angular.module('NWApp').controller('ListController',
+    ['$scope', 'Forum', 'Topic', function ListController($scope, Forum, Topic) {
 
         $scope.forums = [];
         $scope.topics = [];
@@ -18,7 +18,11 @@ angular.module('NWApp').controller('ForumListController',
         };
 
         $scope.hasForumTopics = function (forumId) {
-            return $scope.topics[forumId].length > 0
+            if ($scope.topics[forumId]) {
+                return $scope.topics[forumId].length > 0
+            }
+
+            return false;
         }
     }]
 );

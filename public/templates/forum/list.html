@@ -1,3 +1,12 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default pull-right">
+            <div class="panel-body">
+                <a ng-href="/topic/create" class="btn btn-primary btn-sm">Dodaj Topic</a>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row" ng-init="fetchForums();">
     <div class="col-lg-12">
         <table ng-repeat="forum in forums" class="animation table table-bordered table-responsive">
@@ -14,8 +23,8 @@
             <tbody>
                 <tr ng-repeat="topic in topics[forum.id]">
                     <td><a href="/topic/{{ topic.id }}">{{ topic.name }}</a></td>
-                    <td>{{ topic.autorName }}</td>
-                    <td>{{ topic.lastPostAutorName }} - {{ topic.changeAt }}</td>
+                    <td>{{ topic.authorName }}</td>
+                    <td>{{ topic.lastPostAuthorName }} <br/> {{ topic.changeAt | date:'yyyy-MM-dd HH:mm:ss' }}</td>
                 </tr>
                 <tr ng-if="!hasForumTopics(forum.id)" class="warning text-center">
                     <td colspan="3">Brak tematów!</td>
