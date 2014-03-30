@@ -1,19 +1,20 @@
 angular.module('NWApp').controller(
-    'ShowController',
+    'TopicShowController',
     [
         '$scope',
         '$routeParams',
         '$sce',
+        '$filter',
         'Post',
         'Topic',
-        'User',
+        'UserSession',
         'Forum',
-        function ShowController($scope, $routeParams, $sce, Post, Topic, User, Forum)
+        function TopicShowController($scope, $routeParams, $sce, $filter, Post, Topic, UserSession, Forum)
         {
             $scope.forum = {};
             $scope.topic = {};
             $scope.posts = [];
-            $scope.user = User;
+            $scope.user = UserSession;
             $scope.post = {
                 content: ""
             };
@@ -57,7 +58,7 @@ angular.module('NWApp').controller(
             };
 
             $scope.toTrusted = function(htmlCode) {
-                return $sce.trustAsHtml(htmlCode);
+                return $sce.trustAsHtml($filter('parseUrl')(htmlCode));
             }
         }
     ]

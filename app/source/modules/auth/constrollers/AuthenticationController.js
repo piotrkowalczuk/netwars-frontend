@@ -1,5 +1,5 @@
 angular.module('NWApp').controller('AuthenticationController',
-    ['$scope', '$location', 'Auth', 'User', function AuthenticationController($scope, $location, Auth, User) {
+    ['$scope', '$location', 'Auth', 'UserSession', function AuthenticationController($scope, $location, Auth, UserSession) {
 
         $scope.credentials = {
             email: null,
@@ -11,19 +11,19 @@ angular.module('NWApp').controller('AuthenticationController',
         $scope.login = function () {
             Auth.login($scope.credentials)
                 .success(function(userData) {
-                    User.login(userData);
+                    UserSession.login(userData);
                 });
         };
 
         $scope.logout = function () {
-            Auth.logout(User.getUserCredentials())
+            Auth.logout(UserSession.getUserCredentials())
                 .success(function() {
-                    User.login();
+                    UserSession.login();
                 });
         };
 
         $scope.isLoggedIn = function () {
-            return User.isLogged();
+            return UserSession.isLogged();
         }
 
         $scope.isActiveRoute = function(route) {
@@ -33,7 +33,7 @@ angular.module('NWApp').controller('AuthenticationController',
         }
 
         $scope.getUserName = function() {
-            return User.getUserProperty('name');
+            return UserSession.getUserProperty('name');
         }
     }]
 );

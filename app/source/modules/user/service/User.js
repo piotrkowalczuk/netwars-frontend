@@ -1,69 +1,27 @@
 angular.module('NWApp').factory('User',
-    ['$rootScope', '$location', '$cookieStore', function User($rootScope, $location, $cookieStore) {
+    [
+        '$http',
+        function User($http) {
 
-        var login = function(userData) {
-            setUserData(userData);
-            $rootScope.$broadcast('login');
-            $location.path('/');
-        }
-
-        var logout = function() {
-            removeUserData();
-            $rootScope.$broadcast('logout');
-            $location.path('/splash');
-        }
-
-        var getUserData = function() {
-            return $cookieStore.get('userData');
-        }
-
-        var setUserData = function (userData) {
-            $cookieStore.put('userData', userData);
-        }
-
-        var removeUserData = function () {
-            $cookieStore.remove('userData');
-        };
-
-        var getUserProperty = function(property) {
-            var userData = getUserData();
-
-            if(userData) {
-                return userData[property];
-            }
-
-            return null;
-        };
-
-        var getUserCredentials = function() {
-            var credentials = {
-                token: getUserProperty('token'),
-                id: getUserProperty('id')
+            var fetchUser = function fetchTopic(userId) {
+                return $http({
+                    url: '/api/user/' + userId,
+                    method: "GET"
+                });
             };
 
-            return credentials;
-        };
+            var createUser = function createUser(data) {
+                return $http({
+                    url: '/api/register',
+                    method: "POST",
+                    data: data
+                });
+            };
 
-        var isLogged = function() {
-            var apiToken = getUserProperty('token');
-            var uid = getUserProperty('id');
-
-            if(apiToken && uid) {
-                return true;
-            }
-
-            return false;
-        };
-
-        return {
-            login: login,
-            logout: logout,
-            setUserData: setUserData,
-            removeUserData: removeUserData,
-            getUserData: getUserData,
-            getUserProperty: getUserProperty,
-            getUserCredentials: getUserCredentials,
-            isLogged: isLogged
+            return {
+                fetchUser: fetchUser,
+                createUser: createUser
+            };
         }
-    }]
+    ]
 );

@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Logowanie</h3>
+        <h3 class="panel-title">Autoryzacja</h3>
     </div>
     <div class="panel-body">
         <form novalidate="true" role="form">
@@ -24,7 +24,8 @@
                         ng-model="credentials.password"
                         >
             </div>
-            <button class="btn btn-default" ng-click="login()">Submit</button>
+            <button class="btn btn-default" ng-click="login()">Logowanie</button>
+            <a class="pull-right" ng-href="/register">Zarejestruj się</a>
         </form>
     </div>
 </div>

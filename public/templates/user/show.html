@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12" ng-init="fetchUser();">
+        <dl class="dl-horizontal">
+            <dt ng-if="user.name">Nick</dt>
+            <dd ng-if="user.name" ng-bind="user.name"></dd>
+            <dt ng-if="user.email">Email</dt>
+            <dd ng-if="user.email"><a ng-href="mailto:{{user.email}}" ng-bind="user.email"></a></dd>
+            <dt ng-if="user.ntcNick">NTC</dt>
+            <dd ng-if="user.ntcNick" ng-bind="user.ntcNick"></dd>
+            <dt ng-if="user.gaduGadu">Gadu Gadu</dt>
+            <dd ng-if="user.gaduGadu" ng-bind="user.gaduGadu"></dd>
+        </dl>
+    </div>
+</div>

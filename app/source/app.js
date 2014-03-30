@@ -6,20 +6,28 @@ angular.module('NWApp', ['ngRoute', 'ngCookies', 'ngAnimate', 'ui.bootstrap'])
             'use strict';
 
             $routeProvider.when('/forum', {
-                controller: 'ListController',
+                controller: 'ForumListController',
                 templateUrl: '/templates/forum/list.html'
             })
+            .when('/forum/:id', {
+                controller: 'ForumShowController',
+                templateUrl: '/templates/forum/show.html'
+            })
             .when('/topic/create', {
-                controller: 'CreateController',
+                controller: 'TopicCreateController',
                 templateUrl: '/templates/topic/create.html'
             })
             .when('/topic/:id', {
-                controller: 'ShowController',
+                controller: 'TopicShowController',
                 templateUrl: '/templates/topic/index.html'
             })
-            .when('/', {
-                controller: 'DashboardController',
-                templateUrl: '/templates/dashboard/index.html'
+            .when('/user/:id', {
+                controller: 'UserShowController',
+                templateUrl: '/templates/user/show.html'
+            })
+            .when('/register', {
+                controller: 'UserRegisterController',
+                templateUrl: '/templates/user/register.html'
             })
             .otherwise({
                 template: 'Error 404'

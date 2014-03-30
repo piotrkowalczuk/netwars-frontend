@@ -1,5 +1,5 @@
-angular.module('NWApp').controller('ListController',
-    ['$scope', 'Forum', 'Topic', function ListController($scope, Forum, Topic) {
+angular.module('NWApp').controller('ForumListController',
+    ['$scope', 'Forum', 'Topic', function ForumListController($scope, Forum, Topic) {
 
         $scope.forums = [];
         $scope.topics = [];

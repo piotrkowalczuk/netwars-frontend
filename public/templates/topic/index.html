@@ -11,12 +11,14 @@
         </div>
         <div ng-repeat="post in posts" class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title pull-left" ng-bind="post.authorName"></h3>
+                <h3 class="panel-title pull-left">
+                    <a ng-href="/user/{{post.authorId}}" ng-bind="post.authorName"></a>
+                </h3>
                 <small class="block pull-right" ng-bind="post.createdAt | date:'yyyy-MM-dd HH:mm:ss'"></small>
                 <div class="clearfix"></div>
             </div>
             <div class="panel-body" ng-bind-html="toTrusted(post.content)"></div>
-            <div class="panel-footer" ng-bind="post.changedAt"></div>
+            <div class="panel-footer" ng-if="post.changedAt" ng-bind="post.changedAt"></div>
         </div>
         <div ng-if="user.isLogged()" ng-include=" '/templates/topic/form.html' ">
         </div>

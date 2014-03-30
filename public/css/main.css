@@ -1,0 +1,418 @@
+body {
+    color: #fff;
+    background-color: #000;
+    width:auto;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input.span12,
+textarea.span12,
+.uneditable-input.span12 {
+    width: 926px;
+}
+
+input.span11,
+textarea.span11,
+.uneditable-input.span11 {
+    width: 846px;
+}
+
+input.span10,
+textarea.span10,
+.uneditable-input.span10 {
+    width: 766px;
+}
+
+input.span9,
+textarea.span9,
+.uneditable-input.span9 {
+    width: 676px;
+}
+
+input.span8,
+textarea.span8,
+.uneditable-input.span8 {
+    width: 596px;
+}
+
+input.span7,
+textarea.span7,
+.uneditable-input.span7 {
+    width: 516px;
+}
+
+input.span6,
+textarea.span6,
+.uneditable-input.span6 {
+    width: 436px;
+}
+
+input.span5,
+textarea.span5,
+.uneditable-input.span5 {
+    width: 356px;
+}
+
+input.span4,
+textarea.span4,
+.uneditable-input.span4 {
+    width: 276px;
+}
+
+input.span3,
+textarea.span3,
+.uneditable-input.span3 {
+    width: 196px;
+}
+
+input.span2,
+textarea.span2,
+.uneditable-input.span2 {
+    width: 116px;
+}
+
+input.span1,
+textarea.span1,
+.uneditable-input.span1 {
+    width: 36px;
+}
+
+.posthead {
+    height: 30px;
+    margin-bottom: 0px;
+    border-radius: 4px 4px 0px 0px;
+    min-height: 39px;
+    padding: 10px 19px 1px 19px;
+    background-color: #422100;
+    border: 1px solid #000;
+    border-width: 1px 1px 0px 1px;
+    color: rgb(177, 177, 177);
+}
+
+.post_body {
+    margin-top: 0px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    position: relative;
+    padding: 14px 18px;
+}
+
+.numerek_posta {
+    font-weight: normal;
+    color: #fff;
+}
+
+.p2_data {
+    font-style: italic;
+    color: #fff;
+}
+
+.post_menu {
+    background-color: rgb(223, 223, 223);
+    padding: 4px 2px;
+}
+
+.p2_nick .nick {
+    font-weight: bold;
+}
+
+.searchLink {
+    display: none;
+}
+
+.label {
+    border-radius: 2px 2px 0px 0px;
+    position: relative;
+    left: 4px;
+}
+
+.label {
+    border-radius: 2px;
+}
+
+.alert-margin {
+    margin: 10px auto 0px auto;
+}
+
+.pined a {
+    color: rgb(255, 143, 0);
+    font-weight: bold;
+}
+
+.last {
+    font-size: 12px;
+}
+
+.posts small badge {
+    border-radius: 2px;
+    padding: 1px;
+}
+
+.well {
+    background-color: #663300;
+    border: 1px solid #000;
+}
+
+a {
+    color: orange;
+}
+
+a:hover {
+    color: orange;
+    text-decoration: underline;
+}
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+    background-color: #663300;
+    border: 1px solid #C46200;
+    color: #fff;
+}
+
+.nav-list > li > a, .nav-list .nav-header {
+    text-shadow: 0 1px 0 rgba(20, 20, 20, 0.5);
+}
+
+.table {
+    background-color: #934E2D;
+}
+
+.table a {
+    text-shadow: 0 1px 0 rgba(20, 20, 20, 0.5);
+}
+
+.table th td {
+    text-transform: lowercase;
+}
+
+.table-bordered {
+    border-color: #000;
+}
+
+.table-bordered th, .table-bordered td, .table-bordered tr {
+    border: 1px solid #000;
+}
+
+
+td.topic, td.posts {
+    background-color: #612D00;
+}
+
+td.posts, td.autor {
+    text-align: center;
+    vertical-align: middle;
+}
+
+td.last {
+    text-align: right;
+}
+
+td.pined a {
+    color: #ff0000;
+}
+
+td.autor a {
+    color: #fff;
+}
+
+p.menu a.btn {
+    margin: 10px 0px 0px 0px;
+}
+
+p.menu a.label {
+    position: absolute;
+    bottom: -10px;
+    display: block;
+}
+
+.nav > li > a:hover {
+    text-decoration: none;
+    background-color: black;
+}
+
+.post_modified {
+    position: absolute;
+    bottom: -20px;
+    display: block;
+    width: 100%;
+    background-color: #000;
+    text-align: center;
+    font-size: 12px;
+}
+
+legend {
+    color: #fff;
+}
+
+.nav-list .divider {
+    background-color: black;
+    border-bottom: 1px solid #FF7A00;
+}
+
+.breadcrumb {
+    background-color: #271400;
+    border: 1px solid #000;
+}
+
+.breadcrumb > li {
+    text-shadow: 0 1px 0 #000;
+}
+
+.nav-list > li > a > i {
+    position: relative;
+    top: -1px;
+}
+
+.pagination ul > li > a, .pagination ul > li > span {
+    background-color: #271400;
+    border-color: #000;
+}
+
+.pagination ul > li > a:hover,
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+    background-color: #612D00;
+}
+
+.panel {
+    border: 1px solid #C46200;
+    background-color: #612D00;
+}
+
+.panel-default > .panel-heading {
+    background-color: #934E2D;
+    border: 0px;
+}
+
+.panel-default > .panel-heading a {
+    color: #FFA500;
+    text-shadow: 0 1px 0 rgba(20, 20, 20, 0.5)
+}
+
+a.list-group-item {
+    background-color: #663300;
+    border: 1px solid #C46200;
+    color: #fff;
+    font-size: 12px;
+}
+
+a.list-group-item span {
+    font-size: 14px;
+}
+
+a.list-group-item:hover {
+    background-color: #3d1e00;
+    border: 1px solid #C46200;
+    color: #fff;
+}
+
+.table-bordered {
+    border-radius: 4px;
+}
+
+.table-bordered>thead>tr>th,
+.table-bordered>tbody>tr>th,
+.table-bordered>tfoot>tr>th,
+.table-bordered>thead>tr>td,
+.table-bordered>tbody>tr>td,
+.table-bordered>tfoot>tr>td {
+    border: 1px solid #000;
+    word-wrap: break-word;
+}
+
+.panel-search {
+    background-color: #241100;
+}
+
+.btn-search {
+    background-color: #000;
+    color: orange;
+    border: 1px solid #C46200;
+    border-left-width: 0px;
+}
+
+.btn-login-box {
+    background-color: #000;
+    border-left-width: 0px;
+    margin-bottom: 10px;
+}
+
+.table-topic-list th {
+    font-size: 14px;
+}
+
+.table-topic-list th {
+    background-color: #422100;
+}
+
+.table-td-topic-name,
+.table-td-topic-posts {
+    background-color: #612D00;
+}
+
+.table-td-topic-name a {
+    color: orange;
+    text-shadow: 0 1px 0 rgba(20, 20, 20, 0.5);
+    text-decoration: none;
+}
+
+.table-td-topic-name a,
+.table-td-topic-author a,
+.table-td-topic-posts a,
+.table-td-topic-last a {
+    text-decoration: none;
+}
+
+.table-td-topic-name a:hover,
+.table-td-topic-author a:hover,
+.table-td-topic-posts a:hover,
+.table-td-topic-last a:hover {
+    text-decoration: underline;
+}
+
+.table-td-topic-author,
+.table-td-topic-posts {
+    text-align: center;
+    padding: 5px;
+    min-width: 115px;
+}
+
+.table-td-topic-author a{
+    color: #fff;
+    font-weight: bold;
+}
+
+.table-td-topic-author, td.last {
+    background-color: #934E2D;
+}
+
+.table-td-topic-last {
+    font-size: 12px;
+    min-width: 120px;
+}
+
+.table-td-topic-last a {
+    color: #C0C0C0;
+    text-shadow: 0 1px 0 rgba(20, 20, 20, 0.5);
+}

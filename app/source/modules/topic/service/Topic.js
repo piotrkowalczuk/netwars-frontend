@@ -1,8 +1,8 @@
 angular.module('NWApp').factory('Topic',
     [
         '$http',
-        'User',
-        function Topic($http, User) {
+        'UserSession',
+        function Topic($http, UserSession) {
             var fetchTopic = function fetchTopic(topicId) {
                 return $http({
                     url: '/api/topic/' + topicId,
@@ -21,7 +21,7 @@ angular.module('NWApp').factory('Topic',
                 return $http({
                     url: '/api/topic',
                     method: "POST",
-                    params: User.getUserCredentials(),
+                    params: UserSession.getUserCredentials(),
                     data: data
                 });
             };

@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default panel-search">
     <!-- Default panel contents -->
     <div class="panel-heading">Menu</div>
 
@@ -6,4 +6,10 @@
     <ul class="list-group">
         <li class="list-group-item"><a href="/forum">Forum</a></li>
     </ul>
+</div>
+<div class="panel panel-default" ng-include=" '/templates/forum/searchForm.html' "></div>
+<div class="panel panel-default pull-left" ng-if="isLoggedIn()">
+    <div class="panel-body">
+        <a ng-href="/topic/create" class="btn btn-primary btn-sm">Dodaj Topic</a>
+    </div>
 </div>

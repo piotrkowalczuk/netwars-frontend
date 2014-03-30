@@ -1,14 +1,14 @@
 angular.module('NWApp').controller(
-    'CreateController',
+    'TopicCreateController',
     [
         '$scope',
         '$routeParams',
         '$location',
         'Post',
         'Topic',
-        'User',
+        'UserSession',
         'Forum',
-        function CreateController($scope, $routeParams, $location, Post, Topic, User, Forum)
+        function TopicCreateController($scope, $routeParams, $location, Post, Topic, UserSession, Forum)
         {
             $scope.forums = [];
             $scope.topic = {
