@@ -8,13 +8,13 @@ angular.module('NWApp').factory('UserSession',
             var login = function(userData) {
                 setUserData(userData);
                 $rootScope.$broadcast('login');
-                $location.path('/');
+                $location.path('/forum');
             }
 
             var logout = function() {
                 removeUserData();
                 $rootScope.$broadcast('logout');
-                $location.path('/splash');
+                $location.path('/');
             }
 
             var getUserData = function() {

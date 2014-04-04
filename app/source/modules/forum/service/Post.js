@@ -23,10 +23,20 @@ angular.module('NWApp').factory('Post',
             });
         };
 
+        var modifyPost = function(postId, data) {
+            return $http({
+                method: 'PATCH',
+                url: '/api/post/'+postId,
+                params: UserSession.getUserCredentials(),
+                data: data
+            });
+        };
+
         return {
             fetchPost: fetchPost,
             fetchPosts: fetchPosts,
-            createPost: createPost
+            createPost: createPost,
+            modifyPost: modifyPost
         }
     }]
 );

@@ -12,13 +12,66 @@
         <div ng-repeat="post in posts" class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title pull-left">
-                    <a ng-href="/user/{{post.authorId}}" ng-bind="post.authorName"></a>
+                    <span style="color: #fff" ng-bind="'['+($index+1)+']'"></span>
+                    <strong>
+                        <a ng-href="/user/{{post.authorId}}" ng-bind="post.authorName"></a>
+                    </strong>
                 </h3>
-                <small class="block pull-right" ng-bind="post.createdAt | date:'yyyy-MM-dd HH:mm:ss'"></small>
+                <em style="color: #fff"
+                    class="block pull-right"
+                    ng-bind="post.createdAt | date:'yyyy-MM-dd HH:mm:ss'"
+                        >
+                </em>
                 <div class="clearfix"></div>
             </div>
-            <div class="panel-body" ng-bind-html="toTrusted(post.content)"></div>
-            <div class="panel-footer" ng-if="post.changedAt" ng-bind="post.changedAt"></div>
+            <div class="panel-body bg-primary"
+                 ng-hide="post.editInProgress || !post.modifiedContent"
+                    >
+                <span class="glyphicon glyphicon-floppy-save"></span> Zapisywanie...
+            </div>
+            <div class="panel-body ui-post-content-read"
+                 ng-bind-html="parsePost(post.content)"
+                 ng-hide="post.editInProgress"
+                    >
+            </div>
+            <div class="panel-body ui-post-content-edit"
+                 ng-if="isEditable(post)"
+                 ng-show="post.editInProgress"
+                    >
+                <form>
+                    <div class="form-group">
+                        <textarea
+                                class="form-control"
+                                ng-model="post.modifiedContent"
+                                style="height: 250px;"
+                                >
+                        </textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer text-center" ng-if="post.changeAt && post.changerName">
+                <small class="text-danger" ng-bind="'zmieniono '+(post.changeAt | date:'yyyy-MM-dd HH:mm:ss')+' przez '+post.changerName"></small>
+            </div>
+            <div class="panel-footer text-right" ng-if="isEditable(post)">
+                <button class="btn btn-xs btn-danger"
+                        ng-click="showEditForm(post)"
+                        ng-hide="post.editInProgress"
+                        >
+                    <span class="glyphicon glyphicon glyphicon-edit"></span> Modyfikuj
+                </button>
+                <button class="btn btn-xs btn-info"
+                        ng-click="saveChanges(post)"
+                        ng-show="post.editInProgress"
+                        >
+                    <span class="glyphicon glyphicon-ok"></span> Zapisz
+                </button>
+                <button class="btn btn-xs btn-warning"
+                        ng-click="cancelEdit(post)"
+                        ng-show="post.editInProgress"
+                        >
+                    <span class="glyphicon glyphicon-remove"></span> Anuluj
+                </button>
+            </div>
         </div>
         <div ng-if="user.isLogged()" ng-include=" '/templates/topic/form.html' ">
         </div>

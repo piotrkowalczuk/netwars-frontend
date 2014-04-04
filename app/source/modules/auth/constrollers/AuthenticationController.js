@@ -4,7 +4,7 @@ angular.module('NWApp').controller('AuthenticationController',
         $scope.credentials = {
             email: null,
             password: null
-        }
+        };
 
         $scope.user = {};
 
@@ -18,23 +18,30 @@ angular.module('NWApp').controller('AuthenticationController',
         $scope.logout = function () {
             Auth.logout(UserSession.getUserCredentials())
                 .success(function() {
-                    UserSession.login();
+                    UserSession.logout();
+                })
+                .error(function(data, status) {
+                    switch (status) {
+                        case 404:
+                            UserSession.logout();
+                            break;
+                    }
                 });
         };
 
         $scope.isLoggedIn = function () {
             return UserSession.isLogged();
-        }
+        };
 
         $scope.isActiveRoute = function(route) {
             if($location.path() === route) {
-                return 'active'
+                return 'active';
             }
-        }
+        };
 
         $scope.getUserName = function() {
             return UserSession.getUserProperty('name');
-        }
+        };
     }]
 );
 
