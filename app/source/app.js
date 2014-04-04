@@ -2,7 +2,8 @@ angular.module('NWApp', ['ngRoute', 'ngCookies', 'ngAnimate', 'ui.bootstrap'])
     .config([
         '$routeProvider',
         '$locationProvider',
-        function NWAppConfig($routeProvider, $locationProvider) {
+        '$httpProvider',
+        function NWAppConfig($routeProvider, $locationProvider, $httpProvider) {
             'use strict';
 
             $routeProvider.when('/forum', {
@@ -34,6 +35,8 @@ angular.module('NWApp', ['ngRoute', 'ngCookies', 'ngAnimate', 'ui.bootstrap'])
             });
 
             $locationProvider.html5Mode(true);
+
+            $httpProvider.interceptors.push('HttpResponseInterceptor');
         }
     ]
 );
