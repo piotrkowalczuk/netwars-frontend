@@ -170,7 +170,7 @@ a:hover {
     text-decoration: underline;
 }
 
-textarea,
+textarea.form-control,
 input[type="text"],
 input[type="password"],
 input[type="datetime"],
@@ -428,7 +428,25 @@ a.list-group-item:hover {
     border-radius: 2px;
     background-color: #663300;
 }
+
 .pager-netwars .next a:hover,
 .pager-netwars .previous a:hover {
     background-color: #934E2D;
+}
+
+.videowrapper {
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+}
+.videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

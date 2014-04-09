@@ -70,7 +70,8 @@ angular.module('NWApp').controller(
 
             $scope.parsePost = function(text) {
                 var parsedHtml = '';
-                parsedHtml = $filter('parseUrl')(text);
+                parsedHtml = $filter('parseYoutubeUrl')(text);
+                parsedHtml = $filter('parseUrl')(parsedHtml);
                 parsedHtml = $filter('newLine')(parsedHtml);
                 return $sce.trustAsHtml(parsedHtml);
             };
