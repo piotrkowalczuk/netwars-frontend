@@ -2,20 +2,25 @@ angular.module('NWApp').controller(
     'UserRegisterController',
     [
         '$scope',
+        '$location',
         'User',
-        function UserRegisterController($scope, User)
+        function UserRegisterController($scope, $location, User)
         {
             $scope.user = {
                 name: '',
                 email: '',
-                password: '',
+                plainPassword: '',
                 gaduGadu: ''
             };
 
             $scope.register = function () {
                 User.createUser($scope.user)
-                    .success(function(response) {
-                        console.log(response);
+                    .success(function() {
+                        $scope.$emit('flashMessage', 'success', 'Konto zostało utworzone poprawnie. Możesz się zaglogować.');
+                        $location.path('/');
+                    })
+                    .error(function(){
+                        $scope.$emit('flashMessage', 'warning', 'Coś poszło nie tak jak powinno.');
                     });
             };
         }

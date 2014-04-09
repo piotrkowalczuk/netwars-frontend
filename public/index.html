@@ -20,17 +20,22 @@
            <link rel="stylesheet" href="/css/main.css"/>
        </head>
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <alert ng-repeat="alert in alerts" class="animation" type="alert.type"></alert>
-                </div>
-            </div>
+        <div class="container" ng-controller="FlashController">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="page-header">
                         <h1><a href="#">Netwars</a> <small>forum</small></h1>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <alert ng-repeat="alert in alerts"
+                           class="animation"
+                           type="alert.type"
+                           ng-bind="alert.msg"
+                            >
+                    </alert>
                 </div>
             </div>
             <div class="row">

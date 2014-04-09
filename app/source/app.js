@@ -12,7 +12,8 @@ angular.module('NWApp', ['ngRoute', 'ngCookies', 'ngAnimate', 'ui.bootstrap'])
             })
             .when('/forum/:id', {
                 controller: 'ForumShowController',
-                templateUrl: '/templates/forum/show.html'
+                templateUrl: '/templates/forum/show.html',
+                reloadOnSearch: false
             })
             .when('/topic/create', {
                 controller: 'TopicCreateController',

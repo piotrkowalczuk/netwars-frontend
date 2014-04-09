@@ -416,3 +416,19 @@ a.list-group-item:hover {
     color: #C0C0C0;
     text-shadow: 0 1px 0 rgba(20, 20, 20, 0.5);
 }
+
+.pager-netwars {
+    font-size: 10px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.pager-netwars .next a,
+.pager-netwars .previous a {
+    border-radius: 2px;
+    background-color: #663300;
+}
+.pager-netwars .next a:hover,
+.pager-netwars .previous a:hover {
+    background-color: #934E2D;
+}

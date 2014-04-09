@@ -12,7 +12,7 @@
         <div ng-repeat="post in posts" class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title pull-left">
-                    <span style="color: #fff" ng-bind="'['+($index+1)+']'"></span>
+                    <span style="color: #fff" ng-bind="'[#'+($index+1)+']'"></span>
                     <strong>
                         <a ng-href="/user/{{post.authorId}}" ng-bind="post.authorName"></a>
                     </strong>

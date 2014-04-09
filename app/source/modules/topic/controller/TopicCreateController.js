@@ -29,13 +29,16 @@ angular.module('NWApp').controller(
             };
 
             $scope.createTopic = function () {
-                $scope.topic.post.content = $scope.topic.post.content.replace(new RegExp('\r?\n','g'), '<br />');
+                $scope.topic.post.content = $scope.escapeNewLines($scope.topic.post.content);
                 Topic.createTopic($scope.topic)
                     .success(function(topic) {
                         $location.path('/topic/'+topic.id);
-                        $scope.$apply();
                     });
-            }
+            };
+
+            $scope.escapeNewLines = function(string) {
+                return string.replace(new RegExp('/\r?\n/','g'), '\\n')
+            };
         }
     ]
 );

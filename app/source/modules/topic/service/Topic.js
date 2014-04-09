@@ -8,14 +8,15 @@ angular.module('NWApp').factory('Topic',
                     url: '/api/topic/' + topicId,
                     method: "GET"
                 });
-            }
+            };
 
-            var fetchTopics = function fetchTopics(forumId) {
+            var fetchTopics = function fetchTopics(forumId, params) {
                 return $http({
-                    url: '/api/topics/' + forumId,
-                    method: "GET"
+                    url: '/api/forum/'+forumId+'/topics',
+                    method: "GET",
+                    params: params
                 });
-            }
+            };
 
             var createTopic = function createTopic(data) {
                 return $http({
@@ -30,7 +31,7 @@ angular.module('NWApp').factory('Topic',
                 fetchTopic: fetchTopic,
                 fetchTopics: fetchTopics,
                 createTopic: createTopic
-            }
+            };
         }
     ]
 );

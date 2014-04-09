@@ -53,9 +53,7 @@ angular.module('NWApp').controller(
                                 content: ""
                             };
                         });
-                } else {
-                    console.log($scope.post.content);
-                }
+                };
             };
 
             $scope.saveChanges = function (post) {
@@ -67,9 +65,7 @@ angular.module('NWApp').controller(
                             originalPost.editInProgress = false;
                             originalPost.modifiedContent = '';
                         });
-                } else {
-                    console.log($scope.post.content);
-                }
+                };
             };
 
             $scope.parsePost = function(text) {
@@ -84,7 +80,6 @@ angular.module('NWApp').controller(
             };
 
             $scope.showEditForm = function(post) {
-                console.log(post.content);
                 post.editInProgress = true;
                 post.modifiedContent = $scope.unescapeNewLines(post.content);
             };

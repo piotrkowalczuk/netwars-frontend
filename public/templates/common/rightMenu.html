@@ -1,15 +1,16 @@
-<div class="panel panel-default panel-search">
+<div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading">Menu</div>
 
     <!-- List group -->
-    <ul class="list-group">
-        <li class="list-group-item"><a href="/forum">Forum</a></li>
-    </ul>
-</div>
-<div class="panel panel-default" ng-include=" '/templates/forum/searchForm.html' "></div>
-<div class="panel panel-default pull-left" ng-if="isLoggedIn()">
-    <div class="panel-body">
-        <a ng-href="/topic/create" class="btn btn-primary btn-sm">Dodaj Topic</a>
+    <div class="list-group">
+        <a class="list-group-item" href="/forum"><span class="glyphicon glyphicon-list"></span> Forum</a>
+        <a class="list-group-item"
+           ng-if="isLoggedIn()"
+           ng-href="/topic/create"
+                >
+            <span class="glyphicon glyphicon-plus-sign"></span> Dodaj Topic
+        </a>
     </div>
 </div>
+<div class="panel panel-default panel-search" ng-include=" '/templates/forum/searchForm.html' "></div>
