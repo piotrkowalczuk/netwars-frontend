@@ -9,8 +9,7 @@ angular.module('NWApp').controller(
             $scope.user = {
                 name: '',
                 email: '',
-                plainPassword: '',
-                gaduGadu: ''
+                plainPassword: ''
             };
 
             $scope.register = function () {
