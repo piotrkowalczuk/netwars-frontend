@@ -1,0 +1,25 @@
+<div class="row" ng-init="fetchResults();">
+    <div class="col-lg-12">
+        <ul class="nav nav-tabs">
+            <li><a href="#" ng-if="result.topics.length > 0">Tematy</a></li>
+            <li><a href="#" ng-if="result.posts.length > 0">Posty</a></li>
+        </ul>
+        <blockquote ng-repeat="topic in result.topics">
+            <p>
+                <a ng-href="/topic/{{topic.id}}" ng-bind="topic.name"></a>
+            </p>
+            <footer>
+                utworzony przez <a ng-href="/user/{{topic.authorId}}" ng-bind="topic.authorName"></a>
+            </footer>
+        </blockquote>
+
+        <blockquote ng-repeat="post in result.posts">
+            <p>
+                <small style="color: #fff" ng-bind-html="parsePost(post.content);"></small>
+            </p>
+            <footer>
+                napisane przez <a ng-href="/user/{{post.authorId}}" ng-bind="post.authorName"></a>
+            </footer>
+        </blockquote>
+    </div>
+</div>
