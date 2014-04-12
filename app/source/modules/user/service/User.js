@@ -10,6 +10,13 @@ angular.module('NWApp').factory('User',
                 });
             };
 
+            var fetchOnlineUsers = function fetchOnlineUsers() {
+                return $http({
+                    url: '/api/users/online',
+                    method: "GET"
+                });
+            };
+
             var createUser = function createUser(data) {
                 return $http({
                     url: '/api/register',
@@ -20,6 +27,7 @@ angular.module('NWApp').factory('User',
 
             return {
                 fetchUser: fetchUser,
+                fetchOnlineUsers: fetchOnlineUsers,
                 createUser: createUser
             };
         }

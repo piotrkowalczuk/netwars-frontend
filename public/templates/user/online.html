@@ -1,0 +1,9 @@
+<small ng-init="fetchOnlineUsers();">
+    <div class="panel-body">
+        Użytkownicy online ({{onlineUsers.length}}):
+        <span ng-repeat="user in onlineUsers">
+            <a ng-href="/user/{{user.id}}" ng-bind="user.name"></a>
+            ,
+        </span>
+    </div>
+</small>
