@@ -31,6 +31,10 @@ angular.module('NWApp', ['ngRoute', 'ngCookies', 'ngAnimate', 'ui.bootstrap'])
                 controller: 'UserRegisterController',
                 templateUrl: '/templates/user/register.html'
             })
+            .when('/search/result/:id', {
+                controller: 'SearchResultController',
+                templateUrl: '/templates/search/result.html'
+            })
             .otherwise({
                 template: 'Error 404'
             });
