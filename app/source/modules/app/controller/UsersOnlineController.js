@@ -9,7 +9,9 @@ angular.module('NWApp').controller(
             $scope.fetchOnlineUsers = function () {
                 User.fetchOnlineUsers()
                     .success(function(onlineUsers) {
-                        $scope.onlineUsers = onlineUsers;
+                        if(onlineUsers) {
+                            $scope.onlineUsers = onlineUsers;
+                        }
                     });
             };
         }

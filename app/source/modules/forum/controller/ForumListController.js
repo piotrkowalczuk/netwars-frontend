@@ -11,7 +11,9 @@ angular.module('NWApp').controller('ForumListController',
                     angular.forEach($scope.forums, function(forum, key){
                         Topic.fetchTopics(forum.id)
                             .success(function(topics) {
-                                $scope.topics[forum.id] = topics;
+                                if(topics) {
+                                    $scope.topics[forum.id] = topics;
+                                }
                             });
                     });
                 });
