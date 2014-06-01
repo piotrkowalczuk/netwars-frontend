@@ -11,13 +11,13 @@ angular.module('NWApp').factory('UserSession',
                 $location.path('/forum');
             }
 
-            var logout = function() {
+            var logout = function () {
                 removeUserData();
                 $rootScope.$broadcast('logout');
                 $location.path('/');
             }
 
-            var getUserData = function() {
+            var getUserData = function () {
                 return $cookieStore.get('userData');
             }
 
@@ -29,7 +29,7 @@ angular.module('NWApp').factory('UserSession',
                 $cookieStore.remove('userData');
             };
 
-            var getUserProperty = function(property) {
+            var getUserProperty = function (property) {
                 var userData = getUserData();
 
                 if(userData) {
@@ -39,7 +39,7 @@ angular.module('NWApp').factory('UserSession',
                 return null;
             };
 
-            var getUserCredentials = function() {
+            var getUserCredentials = function () {
                 var credentials = {
                     token: getUserProperty('token'),
                     id: getUserProperty('id')
@@ -48,7 +48,11 @@ angular.module('NWApp').factory('UserSession',
                 return credentials;
             };
 
-            var isLogged = function() {
+            var getUserId = function () {
+                return getUserProperty('id');
+            };
+
+            var isLogged = function () {
                 var apiToken = getUserProperty('token');
                 var uid = getUserProperty('id');
 
@@ -67,6 +71,7 @@ angular.module('NWApp').factory('UserSession',
                 getUserData: getUserData,
                 getUserProperty: getUserProperty,
                 getUserCredentials: getUserCredentials,
+                getUserId: getUserId,
                 isLogged: isLogged
             }
         }

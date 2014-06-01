@@ -12,18 +12,37 @@ angular.module('NWApp').controller(
                 plainPassword: ''
             };
 
+            $scope.formErrors = {
+                name: [],
+                email: [],
+                plainPassword: []
+            };
+
+            $scope.setFormErrorsDefault = function () {
+                $scope.formErrors = {
+                    name: [],
+                    email: [],
+                    plainPassword: []
+                };
+            };
+
             $scope.register = function () {
+                $scope.setFormErrorsDefault();
+                
                 User.createUser($scope.user)
                     .success(function() {
                         $scope.$emit('flashMessage', 'success', 'Konto zostało utworzone poprawnie. Możesz się zaglogować.');
                         $location.path('/');
                     })
-                    .error(function(){
-                        $scope.$emit('flashMessage', 'warning', 'Coś poszło nie tak jak powinno.');
+                    .error(function(errors){
+                        angular.forEach(errors, function(value, key) {
+                            angular.forEach(value.fieldNames, function(fieldName, key) {
+                                $scope.formErrors[fieldName] = $scope.formErrors[fieldName] || [];
+                                $scope.formErrors[fieldName].push(value.message);
+                            });
+                        });
                     });
             };
         }
     ]
 );
-
-

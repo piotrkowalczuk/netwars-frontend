@@ -5,14 +5,23 @@
             <div class="form-group">
                 <label for="form-field-user-name">Nazwa użytkownika</label>
                 <input ng-model="user.name" id="form-field-user-name" placeholder="Nazwa" type="text" class="form-control">
+                <p class="help-block" ng-repeat="error in formErrors.name">
+                    <span class="text-danger" ng-bind="error"></span>
+                </p>
             </div>
             <div class="form-group">
                 <label for="form-field-user-email">Adres email</label>
                 <input ng-model="user.email" id="form-field-user-email" placeholder="Email" type="email" class="form-control">
+                <p class="help-block" ng-repeat="error in formErrors.email">
+                    <span class="text-danger" ng-bind="error"></span>
+                </p>
             </div>
             <div class="form-group">
                 <label for="form-field-user-password">Hasło</label>
                 <input ng-model="user.plainPassword" id="form-field-user-password" placeholder="Hasło" type="password" class="form-control">
+                <p class="help-block" ng-repeat="error in formErrors.plainPassword">
+                    <span class="text-danger" ng-bind="error"></span>
+                </p>
             </div>
         </form>
     </div>

@@ -13,13 +13,24 @@ module.exports = function (grunt) {
                 banner: '<%= banner %>',
                 stripBanners: true
             },
-            dist: {
+            application: {
                 src: [
                     'app/source/app.js',
                     'app/source/*.js',
                     'app/source/**/*.js'
                 ],
                 dest: 'public/dist/application.js'
+            },
+            vendors: {
+                src: [
+                    'app/vendors/jquery/dist/jquery.min.js',
+                    'app/vendors/angular-bootstrap/ui-bootstrap.min.js',
+                    'app/vendors/bootstrap/dist/js/bootstrap.min.js',
+                    'app/vendors/momentjs/moment.js',
+                    'app/vendors/Autolinker.js/dist/Autolinker.js',
+                    'app/vendors/async/lib/async.js'
+                ],
+                dest: 'public/dist/scripts.js'
             }
         },
         uglify: {
@@ -57,6 +68,40 @@ module.exports = function (grunt) {
                 src: ['lib/**/*.js', 'test/**/*.js']
             }
         },
+        less: {
+            development: {
+                options: {
+                    paths: [
+                        "app",
+                        "app/style",
+                        "app/vendors/bootstrap/less"
+                    ]
+                },
+                files: {
+                    "public/css/style.css": "app/style/style.less"
+                }
+            },
+            production: {
+                options: {
+                    paths: ["assets/css"],
+                    cleancss: true,
+                    modifyVars: {
+                        imgPath: '"http://mycdn.com/path/to/images"',
+                        bgColor: 'red'
+                    }
+                },
+                files: {
+                    "public/css/style.css": "app/style/style.less"
+                }
+            }
+        },
+        copy: {
+            main: {
+                files: [
+                    {expand: true, flatten: true, src: ['app/vendors/bootstrap/dist/fonts/*'], dest: 'public/fonts/', filter: 'isFile'},
+                ]
+            }
+        },
         watch: {
             gruntfile: {
                 files: '<%= jshint.gruntfile.src %>',
@@ -68,7 +113,7 @@ module.exports = function (grunt) {
             },
             develop: {
                 files: 'app/**',
-                tasks: ['concat']
+                tasks: ['copy', 'less', 'concat']
             }
         }
     });
@@ -77,8 +122,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Default task.
-    grunt.registerTask('default', ['concat']);
+    grunt.registerTask('default', ['copy', 'less', 'concat']);
 
 };

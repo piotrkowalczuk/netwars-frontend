@@ -3,7 +3,7 @@ angular.module('NWApp').factory('User',
         '$http',
         function User($http) {
 
-            var fetchUser = function fetchTopic(userId) {
+            var fetchUser = function fetchUser(userId) {
                 return $http({
                     url: '/api/user/' + userId,
                     method: "GET"

@@ -1,0 +1,15 @@
+<div ng-init="fetchStreams();" class="row">
+    <div class="col-xs-6 col-md-4" ng-repeat="stream in streams">
+        <a href="/stream/{{ stream.id }}" class="thumbnail" ng-switch on="stream.isOnline">
+            <img ng-switch-when="true" ng-src="{{ stream.current.preview.medium }}" alt="...">
+            <img ng-switch-default ng-src="/images/offline_med.jpg" alt="offline">
+            <span ng-switch-when="true"
+                  class="badge badge-stream badge-stream-viewers"
+                  ng-bind="stream.current.viewers">
+            </span>
+            <span class="badge badge-stream badge-stream-identifier"
+                  ng-bind="stream.identifier">
+            </span>
+        </a>
+    </div>
+</div>

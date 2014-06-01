@@ -27,9 +27,21 @@ angular.module('NWApp', ['ngRoute', 'ngCookies', 'ngAnimate', 'ui.bootstrap'])
                 controller: 'UserShowController',
                 templateUrl: '/templates/user/show.html'
             })
+            .when('/user/:id/edit', {
+                controller: 'UserEditProfileController',
+                templateUrl: '/templates/user/edit.html'
+            })
             .when('/register', {
                 controller: 'UserRegisterController',
                 templateUrl: '/templates/user/register.html'
+            })
+            .when('/stream/:id', {
+                controller: 'StreamShowController',
+                templateUrl: '/templates/stream/show.html'
+            })
+            .when('/streams', {
+                controller: 'StreamListController',
+                templateUrl: '/templates/stream/index.html'
             })
             .when('/search/result/:id', {
                 controller: 'SearchResultController',

@@ -5,18 +5,18 @@ angular.module('NWApp').factory('Forum',
                 url: '/api/forum/'+forumId,
                 method: "GET"
             });
-        }
+        };
 
         var fetchForums = function fetchForums() {
             return $http({
                 url: '/api/forums',
                 method: "GET"
             });
-        }
+        };
 
         return {
             fetchForum: fetchForum,
-            fetchForums: fetchForums,
-        }
+            fetchForums: fetchForums
+        };
     }]
 );

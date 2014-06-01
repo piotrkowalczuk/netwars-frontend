@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <h3>Profil</h3>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-3" for="form-field-user-email">Adres email</label>
+                <div class="col-sm-9">
+                    <input ng-model="user.email" id="form-field-user-email" placeholder="Email" type="email" class="form-control">
+                    <p class="help-block">Po zmianie adresu email na konto użytkownika zostanie wysłany email z kodem aktywujacym konto.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <div class="checkbox">
+                        <label>
+                            <input ng-model="user.showEmail" type="checkbox"> Pokazuj adres email
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3" for="form-field-user-gadu-gadu">Gadu Gadu</label>
+                <div class="col-sm-9">
+                    <input ng-model="user.gaduGadu" id="form-field-user-gadu-gadu" placeholder="Gadu Gadu" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9 text-right">
+                    <button type="submit" class="btn btn-default">Zapisz</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row" ng-controller="UserStreamEditController">
+    <div class="col-lg-12 col-md-12" ng-init="fetchUserStream();">
+        <h3>Stream</h3>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-3"
+                       for="form-field-user-stream-identifier">
+                    Identyfikator
+                </label>
+                <div class="col-sm-9">
+                    <input ng-model="userStream.identifier"
+                           id="form-field-user-stream-identifier"
+                           placeholder="Identyfikator"
+                           type="text"
+                           class="form-control">
+                </div>
+            </div>
+            <!--wingsOfLiberty: '',-->
+            <!--heartOfTheSwarm: '',-->
+            <!--leagueOfLegends: '',-->
+            <!--broodWar: '',-->
+            <!--other: ''-->
+            <div class="form-group">
+                <label class="col-sm-3">
+                    Kategorie
+                </label>
+                <div class="col-sm-9">
+                    <div class="checkbox">
+                        <label>
+                            <input ng-model="userStream.wingsOfLiberty"
+                                ng-true-value="Y"
+                                ng-false-value="N"
+                                type="checkbox"> Wings Of Liberty
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input ng-model="userStream.heartOfTheSwarm"
+                                ng-true-value="Y"
+                                ng-false-value="N"
+                                type="checkbox"> Heart Of The Swarm
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input ng-model="userStream.leagueOfLegends"
+                            ng-true-value="Y"
+                            ng-false-value="N"
+                            type="checkbox"> League Of Legends
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input ng-model="userStream.broodWar"
+                            ng-true-value="Y"
+                            ng-false-value="N"
+                            type="checkbox"> Brood War
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input ng-model="userStream.other"
+                            ng-true-value="Y"
+                            ng-false-value="N"
+                            type="checkbox"> Inne
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9 text-right">
+                    <button type="submit" class="btn btn-default" ng-click="createOrModifyPost();">Zapisz</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <h3>Hasło</h3>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-3 for="form-field-user-password">Hasło</label>
+                <div class="col-sm-9">
+                    <input ng-model="user.plainPassword" id="form-field-user-password" placeholder="Hasło" type="password" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9 text-right">
+                    <button type="submit" class="btn btn-default">Zapisz</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

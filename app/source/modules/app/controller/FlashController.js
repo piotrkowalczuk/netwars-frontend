@@ -7,7 +7,7 @@ angular.module('NWApp').controller(
             $scope.alerts = [];
 
             $scope.$on('flashMessage', function(event, type, message) {
-                $scope.alerts.push({type: type, msg: message});
+                $scope.alerts.push({type: type, message: message});
                 $timeout(closeAlert, 5000);
             });
 

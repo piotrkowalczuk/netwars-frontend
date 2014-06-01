@@ -10,41 +10,55 @@
            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-cookies.min.js"></script>
            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-animate.min.js"></script>
 
-           <script src="/vendors/angular-bootstrap/ui-bootstrap.min.js"></script>
-           <script src="/vendors/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-           <script src="/vendors/Autolinker.js/dist/Autolinker.min.js"></script>
-           <script src="/vendors/momentjs/moment.js"></script>
+           <script src="/dist/scripts.js"></script>
 
-           <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css"/>
-           <link rel="stylesheet" href="/css/bootstrap-cyborg.css"/>
-           <link rel="stylesheet" href="/css/main.css"/>
+           <link rel="stylesheet" href="/css/style.css"/>
        </head>
-    <body>
-        <div class="container" ng-controller="FlashController">
+    <body ng-controller="FlashController">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button"
+                            class="navbar-toggle"
+                            data-toggle="collapse"
+                            data-target="#userSettingsMenu">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse"
+                     id="userSettingsMenu"
+                     ng-controller="AuthenticationController">
+                    <div ng-if="!isLoggedIn()" ng-include=" '/templates/auth/login.html' "></div>
+                    <div ng-if="isLoggedIn()" ng-include=" '/templates/auth/settings.html' "></div>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <div class="page-header">
-                        <h1><a href="#">Netwars</a> <small>forum</small></h1>
+                    <div class="alert animation"
+                         ng-class="'alert-'+alert.type"
+                         ng-repeat="alert in alerts"
+                         ng-bind="alert.message">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <alert ng-repeat="alert in alerts"
-                           class="animation"
-                           type="alert.type"
-                           ng-bind="alert.msg"
-                            >
-                    </alert>
+                    <div class="page-header">
+                        <h1><a href="/forum">Netwars</a> <small>forum</small></h1>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-md-8">
                     <div ng-view class="animation"></div>
                 </div>
-                <div class="col-lg-4 col-md-4" ng-controller="AuthenticationController">
-                    <div ng-if="!isLoggedIn()" ng-include=" '/templates/auth/login.html' "></div>
-                    <div ng-if="isLoggedIn()" ng-include=" '/templates/user/details.html' "></div>
+                <div class="col-lg-4 col-md-4">
                     <div ng-include=" '/templates/common/rightMenu.html' "></div>
                 </div>
             </div>
