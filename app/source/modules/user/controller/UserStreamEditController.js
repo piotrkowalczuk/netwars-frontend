@@ -16,19 +16,31 @@ angular.module('NWApp').controller(
                 other: ''
             };
 
+            $scope.formErrors = {
+                identifier: [],
+                type: []
+            };
+
             $scope.fetchUserStream = function () {
                 UserStream.fetchUserStream()
                     .success(function(userStream) {
-                        console.log(userStream);
                         $scope.userStream = userStream;
                     });
             };
 
             $scope.createOrModifyPost = function () {
-                console.log($scope.userStream);
                 UserStream.createOrModifyPost($scope.userStream)
                     .success(function(userStream) {
                         $scope.userStream = userStream;
+
+                    })
+                    .error(function(errors){
+                        angular.forEach(errors, function(value, key) {
+                            angular.forEach(value.fieldNames, function(fieldName, key) {
+                                $scope.formErrors[fieldName] = $scope.formErrors[fieldName] || [];
+                                $scope.formErrors[fieldName].push(value.message);
+                            });
+                        });
                     });
             };
         }

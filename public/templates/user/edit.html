@@ -47,6 +47,9 @@
                            placeholder="Identyfikator"
                            type="text"
                            class="form-control">
+                    <p class="help-block" ng-repeat="error in formErrors.identifier">
+                        <span class="text-danger" ng-bind="error"></span>
+                    </p>
                 </div>
             </div>
             <!--wingsOfLiberty: '',-->
