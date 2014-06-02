@@ -1,6 +1,6 @@
 <div class="row" ng-init="fetchForums();">
-    <div class="col-lg-12">
-        <div ng-repeat="forum in forums" class="panel panel-default">
+    <div class="col-lg-12" ng-show="topics.length > 0">
+        <div class="panel panel-default" ng-repeat="forum in forums">
             <!-- Default panel contents -->
             <div class="panel-heading">
                 <a ng-href="forum/{{ forum.id }}" ng-bind="forum.name"></a>
