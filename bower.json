@@ -20,6 +20,7 @@
     "angular-bootstrap": "0.10.0",
     "Autolinker.js": "*",
     "momentjs": "*",
-    "async": "caolan/async"
+    "async": "caolan/async",
+    "angular": "https://github.com/angular/angular.js"
   }
 }

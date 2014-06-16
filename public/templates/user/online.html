@@ -1,9 +1,9 @@
 <small ng-init="fetchOnlineUsers();">
-    <div class="panel-body">
-        Użytkownicy online ({{onlineUsers.length}}):
+    <div class="panel-body" ng-show="numberOfUsers();">
+        Użytkownicy online ({{ numberOfUsers(); }}):
         <span ng-repeat="user in onlineUsers">
             <a ng-href="/user/{{user.id}}" ng-bind="user.name"></a>
-            ,
+            <div ng-if="!$last">,</div>
         </span>
     </div>
 </small>

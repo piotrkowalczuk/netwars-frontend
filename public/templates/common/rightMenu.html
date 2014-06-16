@@ -1,29 +1,34 @@
-<div class="panel panel-default">
-    <!-- Default panel contents -->
-    <div class="panel-heading">Menu</div>
+<div ng-controller="RightMenuController">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Menu</div>
 
-    <!-- List group -->
-    <div class="list-group">
-        <a class="list-group-item" href="/forum">
-            <span class="glyphicon glyphicon-list"></span> Forum
-        </a>
-        <a class="list-group-item" href="/streams">
-            <span class="glyphicon glyphicon-film"></span> Streamy
-        </a>
-        <a class="list-group-item"
-           ng-if="isLoggedIn()"
-           ng-href="/topic/create">
-            <span class="glyphicon glyphicon-plus-sign"></span> Dodaj Topic
-        </a>
+        <!-- List group -->
+        <div class="list-group">
+            <a class="list-group-item" href="/forum">
+                <span class="glyphicon glyphicon-list"></span> Forum
+            </a>
+            <a class="list-group-item" href="/streams">
+                <span class="glyphicon glyphicon-film"></span> Streamy
+            </a>
+            <a class="list-group-item"
+               ng-if="isLoggedIn()"
+               ng-href="/topic/create">
+                <span class="glyphicon glyphicon-plus-sign"></span> Dodaj Topic
+            </a>
+        </div>
     </div>
-</div>
-<div class="panel panel-default panel-search"
-     ng-if="isLoggedIn();"
-     ng-include=" '/templates/forum/searchForm.html' "
-     ng-controller="SearchController">
-</div>
+    <div ng-if="isLoggedIn();">
+        <div class="panel panel-default panel-search"
+             ng-include=" '/templates/forum/searchForm.html' "
+             ng-controller="SearchController">
+        </div>
+    </div>
 
-<div class="panel panel-default"
-     ng-include=" '/templates/user/online.html' "
-     ng-controller="UsersOnlineController">
+    <div ng-if="isLoggedIn();">
+        <div class="panel panel-default"
+             ng-include=" '/templates/user/online.html' "
+             ng-controller="UsersOnlineController">
+        </div>
+    </div>
 </div>

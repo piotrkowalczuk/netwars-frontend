@@ -3,14 +3,18 @@ angular.module('NWApp').controller(
     [
         '$scope',
         'User',
-        function($scope, User) {
-            $scope.onlineUsers = [];
+        function UsersOnlineController($scope, User) {
+            $scope.onlineUsers = {};
 
             $scope.fetchOnlineUsers = function () {
                 User.fetchOnlineUsers()
                     .success(function(onlineUsers) {
                         $scope.onlineUsers = onlineUsers;
                     });
+            };
+
+            $scope.numberOfUsers = function () {
+                return Object.keys($scope.onlineUsers).length;
             };
         }
     ]

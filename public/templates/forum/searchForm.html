@@ -1,17 +1,28 @@
-<div class="searchLink" align=right><a href="/forum/search">Szukaj</a></div>
-<form id="ui-search-form" class="form">
-    <div class="input-group">
-        <input name="ciag" type="text" class="form-control" ng-model="searchParams.text">
-        <input name="zakres" type="hidden">
+<div class="panel-heading">Wyszukiwarka</div>
+<div class="panel-body" style="padding: 4px;">
+    <form id="ui-search-form"
+          class="form"
+          method="post"
+          action="/forum/search">
+        <div class="input-group">
+            <input name="ciag"
+                   type="text"
+                   class="form-control"
+                   ng-model="searchParams.text">
+            <input name="zakres" type="hidden">
 
-        <div class="input-group-btn">
-            <button type="button" class="btn btn-search dropdown-toggle" data-toggle="dropdown">Szukaj
-                <span class="caret"></span></button>
-            <ul id="ui-search-actions" class="dropdown-menu pull-right">
-                <li><a href="#" ng-click="searchOnRange(3);">w postach i tematach</a></li>
-                <li><a href="#" ng-click="searchOnRange(1);">w postach</a></li>
-                <li><a href="#" ng-click="searchOnRange(2);">w tematach</a></li>
-            </ul>
+            <div class="input-group-btn">
+                <button type="button"
+                        class="btn btn-primary btn-search dropdown-toggle"
+                        data-toggle="dropdown">
+                    Szukaj
+                    <span class="caret"></span></button>
+                <ul id="ui-search-actions" class="dropdown-menu pull-right">
+                    <li><a href="#" ng-click="searchOnRange(3);">w postach i tematach</a></li>
+                    <li><a href="#" ng-click="searchOnRange(1);">w postach</a></li>
+                    <li><a href="#" ng-click="searchOnRange(2);">w tematach</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>
