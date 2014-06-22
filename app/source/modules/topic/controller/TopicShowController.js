@@ -5,15 +5,18 @@ angular.module('NWApp').controller(
         '$routeParams',
         '$sce',
         '$filter',
+        '$location',
+        '$anchorScroll',
         'Post',
         'Topic',
         'UserSession',
         'Forum',
-        function TopicShowController($scope, $routeParams, $sce, $filter, Post, Topic, UserSession, Forum)
+        function TopicShowController($scope, $routeParams, $sce, $filter, $location, $anchorScroll, Post, Topic, UserSession, Forum)
         {
             $scope.forum = {};
             $scope.topic = {};
             $scope.posts = [];
+            $scope.nbOfNewPosts = null;
             $scope.user = UserSession;
             $scope.post = {
                 content: ""
@@ -25,6 +28,7 @@ angular.module('NWApp').controller(
                     .success(function(topic) {
                         $scope.topic = topic;
                         $scope.post.topicId = topic.id;
+                        $scope.fetchPosts();
                         $scope.fetchForum(topic.forumId);
                     });
             };
@@ -32,6 +36,7 @@ angular.module('NWApp').controller(
             $scope.fetchPosts = function () {
                 Post.fetchPosts($routeParams.id)
                     .success(function(posts) {
+                        $scope.nbOfNewPosts(posts);
                         $scope.posts = posts;
                     });
             };
@@ -41,6 +46,15 @@ angular.module('NWApp').controller(
                     .success(function(forum) {
                         $scope.forum = forum;
                     });
+            };
+
+            $scope.nbOfNewPosts = function (posts) {
+                if ($scope.topic.userTopic) {
+                    $scope.nbOfNewPosts = posts.length - $scope.topic.userTopic.postSeen;
+                    return
+                }
+
+                $scope.nbOfNewPosts = posts.length;
             };
 
             $scope.createPost = function () {
@@ -73,6 +87,7 @@ angular.module('NWApp').controller(
                 parsedHtml = $filter('parseYoutubeUrl')(text);
                 parsedHtml = $filter('parseUrl')(parsedHtml);
                 parsedHtml = $filter('newLine')(parsedHtml);
+                parsedHtml = $filter('parseQuote')(parsedHtml, $scope.posts);
                 return $sce.trustAsHtml(parsedHtml);
             };
 

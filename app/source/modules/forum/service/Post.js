@@ -13,7 +13,8 @@ angular.module('NWApp').factory('Post',
             var fetchPosts = function fetchTopics(topicId) {
                 return $http({
                     url: '/api/topic/'+topicId+'/posts',
-                    method: "GET"
+                    method: "GET",
+                    params: UserSession.getUserCredentials(),
                 });
             };
 

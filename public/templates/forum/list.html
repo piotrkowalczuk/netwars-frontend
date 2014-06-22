@@ -17,8 +17,15 @@
                 <tbody>
                     <tr ng-repeat="topic in topics[forum.id]">
                         <td class="table-td-topic-name"><a href="/topic/{{ topic.id }}">{{ topic.name }}</a></td>
-                        <td class="table-td-topic-author hidden-xs"><a ng-href="user/{{ topic.authorId }}" ng-bind="topic.authorName"></a></td>
-                        <td class="table-td-topic-posts hidden-xs" ng-bind="topic.nbOfPosts"></td>
+                        <td class="table-td-topic-author hidden-xs">
+                            <a ng-href="user/{{ topic.authorId }}"
+                               ng-bind="topic.authorName">
+                            </a>
+                        </td>
+                        <td class="table-td-topic-posts hidden-xs">
+                            <span ng-bind="topic.nbOfPosts"></span>
+                            <span ng-if="(topic.nbOfPosts - topic.userTopic.postSeen) > 0">(+{{ topic.nbOfPosts - topic.userTopic.postSeen}})</span>
+                        </td>
                         <td class="table-td-topic-last text-right">
                             {{ topic.lastPostDate | date:'yyyy-MM-dd HH:mm' }} <br/>
                             <a ng-href="/user/{{ topic.lastPostAuthorId }}">{{ topic.lastPostAuthorName }}</a>

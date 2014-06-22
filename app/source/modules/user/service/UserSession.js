@@ -52,6 +52,10 @@ angular.module('NWApp').factory('UserSession',
                 return getUserProperty('id');
             };
 
+            var getUserToken = function () {
+                return getUserProperty('token');
+            };
+
             var isLogged = function () {
                 var apiToken = getUserProperty('token');
                 var uid = getUserProperty('id');
@@ -72,6 +76,7 @@ angular.module('NWApp').factory('UserSession',
                 getUserProperty: getUserProperty,
                 getUserCredentials: getUserCredentials,
                 getUserId: getUserId,
+                getUserToken: getUserToken,
                 isLogged: isLogged
             }
         }

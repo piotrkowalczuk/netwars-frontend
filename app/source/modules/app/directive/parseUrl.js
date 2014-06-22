@@ -5,7 +5,7 @@ angular.module('NWApp').directive('parseUrl', function() {
         require: 'ngModel',
         replace: true,
         scope: { props: '=parseUrl', ngModel: '=ngModel' },
-        link: function compile(scope, element, attrs, controller) {
+        link: function compile(scope, element) {
             scope.$watch('ngModel', function(value) {
                 angular.forEach(value.match(urlPattern), function(url) {
                     value = value.replace(url, '<a target="' + scope.props.target + '" href='+ url + '>' + url + '</a>');
