@@ -3,7 +3,7 @@
         Użytkownicy online ({{ numberOfUsers(); }}):
         <span ng-repeat="user in onlineUsers">
             <a ng-href="/user/{{user.id}}" ng-bind="user.name"></a>
-            <div ng-if="!$last">,</div>
+            <span ng-if="!$last">,</span>
         </span>
     </div>
 </small>
