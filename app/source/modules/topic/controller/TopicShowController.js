@@ -66,6 +66,7 @@ angular.module('NWApp').controller(
                             $scope.post = {
                                 content: ""
                             };
+                            $scope.fetchPosts();
                         });
                 };
             };

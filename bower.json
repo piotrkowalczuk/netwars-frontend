@@ -17,10 +17,10 @@
   ],
   "dependencies": {
     "bootstrap": "~3.0.3",
-    "angular-bootstrap": "0.10.0",
     "Autolinker.js": "*",
     "momentjs": "*",
     "async": "caolan/async",
-    "angular": "https://github.com/angular/angular.js"
+    "angular": "https://github.com/angular/angular.js",
+    "angular-bootstrap": "~0.11.0"
   }
 }

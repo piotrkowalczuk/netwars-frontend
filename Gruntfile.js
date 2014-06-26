@@ -24,7 +24,7 @@ module.exports = function (grunt) {
             vendors: {
                 src: [
                     'app/vendors/jquery/dist/jquery.min.js',
-                    'app/vendors/angular-bootstrap/ui-bootstrap.min.js',
+                    'app/vendors/angular-bootstrap/ui-bootstrap-tpls.min.js',
                     'app/vendors/bootstrap/dist/js/bootstrap.min.js',
                     'app/vendors/momentjs/moment.js',
                     'app/vendors/Autolinker.js/dist/Autolinker.js',

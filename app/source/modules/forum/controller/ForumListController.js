@@ -8,6 +8,7 @@ angular.module('NWApp').controller('ForumListController',
 
             $scope.forums = [];
             $scope.topics = [];
+            $scope.user = UserSession;
 
             $scope.fetchForums = function () {
                 Forum.fetchForums()

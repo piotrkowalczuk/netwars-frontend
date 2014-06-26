@@ -8,10 +8,10 @@
             <table class="animation table table-bordered table-condensed table-responsive table-topic-list">
                 <thead>
                     <tr>
-                        <th>Temat</th>
-                        <th class="hidden-xs">Nick</th>
-                        <th class="hidden-xs">Liczba Postów</th>
-                        <th>Ostatni</th>
+                        <th class="small">Temat</th>
+                        <th class="hidden-xs small">Nick</th>
+                        <th class="hidden-xs small">Posty</th>
+                        <th class="small">Ostatni</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,12 +22,13 @@
                                ng-bind="topic.authorName">
                             </a>
                         </td>
-                        <td class="table-td-topic-posts hidden-xs">
+                        <td class="table-td-topic-posts hidden-xs text-center">
                             <span ng-bind="topic.nbOfPosts"></span>
-                            <span ng-if="user.isLogged() && (topic.nbOfPosts - topic.userTopic.postSeen) > 0">(+{{ topic.nbOfPosts - topic.userTopic.postSeen}})</span>
+                            <span ng-if="user.isLogged() && (topic.nbOfPosts - topic.userTopic.postSeen) > 0"
+                                  class="small" style="color: #00b3ee;">(+{{ topic.nbOfPosts - topic.userTopic.postSeen}})</span>
                         </td>
                         <td class="table-td-topic-last text-right">
-                            {{ topic.lastPostDate | date:'yyyy-MM-dd HH:mm' }} <br/>
+                            <span class="small" ng-bind="topic.lastPostDate | date:'yyyy-MM-dd HH:mm'"></span> <br/>
                             <a ng-href="/user/{{ topic.lastPostAuthorId }}">{{ topic.lastPostAuthorName }}</a>
                         </td>
                     </tr>
