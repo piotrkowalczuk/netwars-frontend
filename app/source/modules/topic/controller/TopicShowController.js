@@ -36,7 +36,7 @@ angular.module('NWApp').controller(
             $scope.fetchPosts = function () {
                 Post.fetchPosts($routeParams.id)
                     .success(function(posts) {
-                        $scope.nbOfNewPosts(posts);
+                        $scope.calculateNbOfNewPosts(posts);
                         $scope.posts = posts;
                     });
             };
@@ -48,7 +48,7 @@ angular.module('NWApp').controller(
                     });
             };
 
-            $scope.nbOfNewPosts = function (posts) {
+            $scope.calculateNbOfNewPosts = function (posts) {
                 if ($scope.topic.userTopic) {
                     $scope.nbOfNewPosts = posts.length - $scope.topic.userTopic.postSeen;
                     return
