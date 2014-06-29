@@ -11,8 +11,7 @@ angular.module('NWApp').controller(
         'Topic',
         'UserSession',
         'Forum',
-        function TopicShowController($scope, $routeParams, $sce, $filter, $location, $anchorScroll, Post, Topic, UserSession, Forum)
-        {
+        function TopicShowController($scope, $routeParams, $sce, $filter, $location, $anchorScroll, Post, Topic, UserSession, Forum) {
             $scope.forum = {};
             $scope.topic = {};
             $scope.posts = [];
@@ -25,7 +24,7 @@ angular.module('NWApp').controller(
 
             $scope.fetchTopic = function () {
                 Topic.fetchTopic($routeParams.id)
-                    .success(function(topic) {
+                    .success(function (topic) {
                         $scope.topic = topic;
                         $scope.post.topicId = topic.id;
                         $scope.fetchPosts();
@@ -35,7 +34,7 @@ angular.module('NWApp').controller(
 
             $scope.fetchPosts = function () {
                 Post.fetchPosts($routeParams.id)
-                    .success(function(posts) {
+                    .success(function (posts) {
                         $scope.calculateNbOfNewPosts(posts);
                         $scope.posts = posts;
                     });
@@ -43,7 +42,7 @@ angular.module('NWApp').controller(
 
             $scope.fetchForum = function (forumId) {
                 Forum.fetchForum(forumId)
-                    .success(function(forum) {
+                    .success(function (forum) {
                         $scope.forum = forum;
                     });
             };
@@ -58,32 +57,32 @@ angular.module('NWApp').controller(
             };
 
             $scope.createPost = function () {
-                if($scope.post.content) {
+                if ($scope.post.content) {
                     $scope.post.content = $scope.escapeNewLines($scope.post.content);
                     Post.createPost($scope.post)
-                        .success(function(post) {
+                        .success(function (post) {
                             $scope.posts.push(post);
                             $scope.post = {
                                 content: ""
                             };
                             $scope.fetchPosts();
                         });
-                };
+                }
             };
 
             $scope.saveChanges = function (post) {
                 var originalPost = post;
-                if(post.modifiedContent) {
+                if (post.modifiedContent) {
                     Post.modifyPost(post.id, {content: post.modifiedContent})
-                        .success(function(post) {
+                        .success(function (post) {
                             originalPost.content = post.content;
                             originalPost.editInProgress = false;
                             originalPost.modifiedContent = '';
                         });
-                };
+                }
             };
 
-            $scope.parsePost = function(text) {
+            $scope.parsePost = function (text) {
                 var parsedHtml = '';
                 parsedHtml = $filter('parseYoutubeUrl')(text);
                 parsedHtml = $filter('parseUrl')(parsedHtml);
@@ -92,26 +91,26 @@ angular.module('NWApp').controller(
                 return $sce.trustAsHtml(parsedHtml);
             };
 
-            $scope.isEditable = function(post) {
+            $scope.isEditable = function (post) {
                 return post.createdAgo < (5 * 60) && post.authorId === UserSession.getUserProperty('id');
             };
 
-            $scope.showEditForm = function(post) {
+            $scope.showEditForm = function (post) {
                 post.editInProgress = true;
                 post.modifiedContent = $scope.unescapeNewLines(post.content);
             };
 
-            $scope.cancelEdit = function(post) {
+            $scope.cancelEdit = function (post) {
                 post.editInProgress = false;
                 post.modifiedContent = '';
             };
 
-            $scope.escapeNewLines = function(string) {
-                return string.replace(new RegExp('/\r?\n/','g'), '\\n')
+            $scope.escapeNewLines = function (string) {
+                return string.replace(new RegExp('/\r?\n/', 'g'), '\\n')
             };
 
-            $scope.unescapeNewLines = function(string) {
-                return string.replace(new RegExp('\\n','g'), '\n')
+            $scope.unescapeNewLines = function (string) {
+                return string.replace(new RegExp('\\n', 'g'), '\n')
             };
         }
     ]

@@ -1,13 +1,11 @@
 angular.module('NWApp').factory('UserStream',
     [
         '$http',
-        'UserSession',
-        function UserStream($http, UserSession) {
+        function UserStream($http) {
 
             var fetchUserStream = function fetchUserStream() {
                 return $http({
                     url: '/api/user/stream',
-                    params: UserSession.getUserCredentials(),
                     method: "GET"
                 });
             };
@@ -16,7 +14,6 @@ angular.module('NWApp').factory('UserStream',
                 return $http({
                     url: '/api/user/stream',
                     method: "POST",
-                    params: UserSession.getUserCredentials(),
                     data: data
                 });
             };

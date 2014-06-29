@@ -83,11 +83,12 @@
         </div>
         <div id="no-new-posts-info"
              class="alert text-danger text-center"
-             scroll-if="nbOfNewPosts == 0"
-             ng-if="nbOfNewPosts == 0">
+             scroll-top-if="nbOfNewPosts === 0"
+             ng-if="nbOfNewPosts === 0">
             Brak nowych postów.
         </div>
-        <div ng-if="user.isLogged()" ng-include=" '/templates/topic/form.html' ">
+        <div ng-if="user.isLogged()"
+             ng-include=" '/templates/topic/form.html' ">
         </div>
     </div>
 </div>

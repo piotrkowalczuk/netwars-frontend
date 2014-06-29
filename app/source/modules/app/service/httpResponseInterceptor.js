@@ -12,6 +12,13 @@ angular.module('NWApp').factory(
                     }
 
                     return $q.reject(rejection);
+                },
+                request: function($config) {
+                    if(UserSession.isLogged()) {
+                        $config.headers['Authorization'] = UserSession.getUserToken();
+                    }
+
+                    return $config;
                 }
             }
         }

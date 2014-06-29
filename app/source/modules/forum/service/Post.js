@@ -1,8 +1,7 @@
 angular.module('NWApp').factory('Post',
     [
         '$http',
-        'UserSession',
-        function Post($http, UserSession) {
+        function Post($http) {
             var fetchPost = function fetchTopic(postId) {
                 return $http({
                     url: '/api/post/'+postId,
@@ -13,8 +12,7 @@ angular.module('NWApp').factory('Post',
             var fetchPosts = function fetchTopics(topicId) {
                 return $http({
                     url: '/api/topic/'+topicId+'/posts',
-                    method: "GET",
-                    params: UserSession.getUserCredentials(),
+                    method: "GET"
                 });
             };
 
@@ -22,7 +20,6 @@ angular.module('NWApp').factory('Post',
                 return $http({
                     url: '/api/post',
                     method: "POST",
-                    params: UserSession.getUserCredentials(),
                     data: data
                 });
             };
@@ -31,7 +28,6 @@ angular.module('NWApp').factory('Post',
                 return $http({
                     method: 'PATCH',
                     url: '/api/post/'+postId,
-                    params: UserSession.getUserCredentials(),
                     data: data
                 });
             };

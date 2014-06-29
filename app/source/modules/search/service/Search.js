@@ -1,14 +1,12 @@
 angular.module('NWApp').factory('Search',
     [
         '$http',
-        'UserSession',
-        function Search($http, UserSession) {
+        function Search($http) {
 
             var search = function createPost(data) {
                 return $http({
                     url: '/api/search',
                     method: "POST",
-                    params: UserSession.getUserCredentials(),
                     data: data
                 });
             };
@@ -16,8 +14,7 @@ angular.module('NWApp').factory('Search',
             var fetchResults = function createPost(searchId) {
                 return $http({
                     url: '/api/search/'+searchId,
-                    method: "GET",
-                    params: UserSession.getUserCredentials()
+                    method: "GET"
                 });
             };
 

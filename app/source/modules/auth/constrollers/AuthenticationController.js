@@ -3,9 +3,10 @@ angular.module('NWApp').controller('AuthenticationController',
         '$scope',
         '$location',
         '$rootScope',
+        '$route',
         'Auth',
         'UserSession',
-        function AuthenticationController($scope, $location, $rootScope, Auth, UserSession) {
+        function AuthenticationController($scope, $location, $rootScope, $route, Auth, UserSession) {
 
             $scope.credentials = {
                 email: '',
@@ -19,9 +20,10 @@ angular.module('NWApp').controller('AuthenticationController',
                     Auth.login($scope.credentials)
                         .success(function(userData) {
                             UserSession.login(userData);
+                            $scope.$emit('flashMessage', 'info', 'Zostałeś zalogowany.');
+                            $route.reload();
                         })
                         .error(function(data, status) {
-                            console.log('błąd logowania');
                             $scope.$emit('flashMessage', 'warning', 'Błąd logowania. Email bądź hasło jest nie poprawne.');
                         });
                 }
@@ -31,6 +33,7 @@ angular.module('NWApp').controller('AuthenticationController',
                 Auth.logout(UserSession.getUserCredentials())
                     .success(function() {
                         UserSession.logout();
+                        $scope.$emit('flashMessage', 'info', 'Zostałeś wylogowany.');
                     })
                     .error(function(data, status) {
                         switch (status) {
