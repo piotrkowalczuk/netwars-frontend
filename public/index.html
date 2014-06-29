@@ -42,8 +42,10 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="alert animation"
                          ng-class="'alert-'+alert.type"
-                         ng-repeat="alert in alerts"
-                         ng-bind="alert.message">
+                         ng-repeat="alert in alerts">
+                        <i ng-if="alert.type === 'info'" class="glyphicon glyphicon-info-sign"></i>
+                        <i ng-if="alert.type === 'warning'" class="glyphicon glyphicon-warning-sign"></i>
+                        <span ng-bind="alert.message"></span>
                     </div>
                 </div>
             </div>
