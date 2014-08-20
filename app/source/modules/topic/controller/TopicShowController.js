@@ -21,7 +21,6 @@ angular.module('NWApp').controller(
                 content: ""
             };
 
-
             $scope.fetchTopic = function () {
                 Topic.fetchTopic($routeParams.id)
                     .success(function (topic) {
